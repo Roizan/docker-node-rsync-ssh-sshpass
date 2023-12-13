@@ -10,10 +10,10 @@ echo "Tagging Containers"
 docker tag docker-node-rsync-ssh-sshpass14:latest bernhardmeder/docker-node-rsync-ssh-sshpass:node14-latest
 docker tag docker-node-rsync-ssh-sshpass16:latest bernhardmeder/docker-node-rsync-ssh-sshpass:node16-latest
 docker tag docker-node-rsync-ssh-sshpass17:latest bernhardmeder/docker-node-rsync-ssh-sshpass:node17-latest
-docker tag docker-node-rsync-ssh-sshpass-latest:latest bernhardmeder/docker-node-rsync-ssh-sshpass:latest
+docker tag docker-node-rsync-ssh-sshpass:latest bernhardmeder/docker-node-rsync-ssh-sshpass:latest
 
 echo "Pushing to Dockerhub"
 docker push bernhardmeder/docker-node-rsync-ssh-sshpass:node14-latest
 docker push bernhardmeder/docker-node-rsync-ssh-sshpass:node16-latest
 docker push bernhardmeder/docker-node-rsync-ssh-sshpass:node17-latest
-docker push bernhardmeder/docker-node-rsync-ssh-sshpass:node-latest
+docker push bernhardmeder/docker-node-rsync-ssh-sshpass:latest
