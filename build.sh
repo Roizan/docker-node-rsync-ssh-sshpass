@@ -1,10 +1,13 @@
 #!/bin/bash
 
+echo "Starting Docker buildx instance for multiplatform build"
+docker buildx create --use
+
 echo "Building Containers"
-docker build -t docker-node-rsync-ssh-sshpass14 - < Dockerfile14
-docker build -t docker-node-rsync-ssh-sshpass16 - < Dockerfile16
-docker build -t docker-node-rsync-ssh-sshpass17 - < Dockerfile17
-docker build -t docker-node-rsync-ssh-sshpass-latest - < Dockerfile
+docker buildx build --platform linux/amd64,linux/arm64 -t docker-node-rsync-ssh-sshpass14 - < Dockerfile14
+docker buildx build --platform linux/amd64,linux/arm64 -t docker-node-rsync-ssh-sshpass16 - < Dockerfile16
+docker buildx build --platform linux/amd64,linux/arm64 -t docker-node-rsync-ssh-sshpass17 - < Dockerfile17
+docker buildx build --platform linux/amd64,linux/arm64 -t docker-node-rsync-ssh-sshpass-latest - < Dockerfile
 
 echo "Tagging Containers"
 docker tag docker-node-rsync-ssh-sshpass14:latest bernhardmeder/docker-node-rsync-ssh-sshpass:node14-latest
